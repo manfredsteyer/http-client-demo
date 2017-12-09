@@ -1,0 +1,65 @@
+<div class="card">
+    <div class="header">
+        <h1 class="title">Booking Detail</h1>
+    </div>
+    <div class="content">
+    
+        <p *ngIf="errors">{{ errors }}</p>
+    
+        <form *ngIf="hotelBooking">
+                
+            <div class="form-group">
+                <label>Id:</label>
+                {{hotelBooking.id || 'n/a'}} 
+            </div>
+                
+            <div class="form-group">
+                <label>HotelId:</label>
+                {{hotelBooking.hotelId || 'n/a'}} 
+            </div>
+                
+            <div class="form-group">
+                <label>Date:</label>
+                <input [(ngModel)]="hotelBooking.date" name="date" class="form-control">
+            </div>
+                
+            <div class="form-group">
+                <label>Nights:</label>
+                <input [(ngModel)]="hotelBooking.nights" name="nights" class="form-control">
+            </div>
+                
+            <div class="form-group">
+                <label>First Name:</label>
+                <input [(ngModel)]="hotelBooking.firstName" name="firstName" class="form-control">
+            </div>
+                
+            <div class="form-group">
+                <label>Last Name:</label>
+                <input [(ngModel)]="hotelBooking.lastName" name="lastName" class="form-control">
+            </div>
+                
+            <div class="form-group">
+                <label>Status:</label>
+                {{hotelBooking.status || 'n/a'}}
+                <span *ngIf="url">(<a (click)="reload()">Reload</a>)</span>
+            </div>
+        
+            <div class="form-group">
+                <label class="form-check-label">
+                    <input [(ngModel)]="urgent" type="checkbox" name="urgent" class="form-check-input">
+                    Urgent!
+                </label>
+            </div>
+            
+            <div class="form-group">
+                
+                
+                <button
+                (click)="save()"
+                class="btn btn-default">Save</button>
+            </div>
+
+        </form>
+    
+    </div>
+</div>

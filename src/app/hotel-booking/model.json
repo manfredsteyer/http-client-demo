@@ -1,0 +1,52 @@
+{ 
+    "title": "Booking",
+    "entity": "HotelBooking",
+    "api": {
+      "url": "http://www.angular.at/api/hotelbooking"
+    },
+    "filter": [
+      "hotelId"
+    ],
+    "fields": [
+      {
+        "name": "id",
+        "label": "Id",
+        "isId": true,
+        "readonly": true,
+        "type": "number"
+      },
+      {
+        "name": "hotelId",
+        "type": "number",
+        "readonly": true,
+        "label": "Name"
+      },
+      {
+        "name": "date",
+        "type": "string",
+        "label": "Date",
+        "control": "date"
+      },
+      {
+        "name": "nights",
+        "type": "number",
+        "label": "Nights"
+      },
+      {
+        "name": "firstName",
+        "type": "string",
+        "label": "First Name"
+      },
+      {
+        "name": "lastName",
+        "type": "string",
+        "label": "Last Name"
+      },
+      {
+        "name": "status",
+        "type": "string",
+        "label": "Status"
+      } 
+      
+    ]
+}

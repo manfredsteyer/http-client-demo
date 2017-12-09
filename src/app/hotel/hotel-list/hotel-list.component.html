@@ -1,0 +1,51 @@
+<div class="card">
+    
+      <div class="header">
+        <h2 class="title">Hotel</h2>
+      </div>
+      <div class="content">
+    
+        <form #f="ngForm">
+
+          <div class="form-group">
+            <label>City:</label>
+            <input [(ngModel)]="filter.city" name="city" class="form-control">
+          </div>
+
+          <div class="form-group">
+            <button (click)="search()" [disabled]="!f?.valid" class="btn btn-default">
+              Search
+            </button>
+            <a [routerLink]="['../hotel','new']" class="btn btn-default">
+                New
+            </a>
+  
+          </div>
+          
+        </form>
+    
+      </div>
+    </div>
+    
+    <div class="card" *ngIf="hotelList.length > 0">
+    
+      <table class="table table-contensed" >
+        <thead>
+        <tr>            
+            <th width="1"></th>            
+            <th>Name</th>            
+            <th>City</th>            
+            <th>Stars</th>
+        </tr>
+        </thead>
+        <tr *ngFor="let item of hotelList" [class.active]="item === selectedHotel">
+          
+            <td><a [routerLink]="['../hotel', item.id ]"><img width="250" src="{{baseUrl}}/picture/hotels/{{item.id}}"></a></td>
+            <td>{{item.name}}</td>
+            <td>{{item.city}}</td>
+            <td>{{item.stars}}</td>
+            <td><a [routerLink]="['../hotel', item.id ]">Details</a></td>
+        </tr>
+      </table>
+    
+    </div>

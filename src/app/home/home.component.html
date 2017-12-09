@@ -1,0 +1,20 @@
+<div class="card">
+  <div class="header">
+    <h1 *ngIf="!givenName" class="title">Welcome!</h1>
+    <h1 *ngIf="givenName" class="title">Welcome, {{givenName}}!</h1>
+  </div>
+  <div class="content">
+
+      
+  <div *ngIf="needsLogin" class="alert alert-warning">
+      <div>
+        You are not logged in or don't have the necessary rights.
+        Please login with a respective user account for the requested action.
+      </div>
+  </div>
+
+
+    <button class="btn btn-default" (click)="login()">Login</button>
+    <button class="btn btn-default" (click)="logout()">Logout</button>
+  </div>
+</div>

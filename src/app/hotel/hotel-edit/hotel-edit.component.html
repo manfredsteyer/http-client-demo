@@ -1,0 +1,62 @@
+<div class="card">
+    <div class="header">
+        <h1 class="title">Hotel Detail</h1>
+    </div>
+    <div class="content">
+    
+        <p *ngIf="errors">{{ errors }}</p>
+    
+        <form *ngIf="hotel">
+                
+            <div class="form-group">
+                <label>Id:</label>
+                {{hotel.id || 'n/a'}} 
+            </div>
+                
+            <div class="form-group">
+                <label>Name:</label>
+                <input [(ngModel)]="hotel.name" name="name" class="form-control">
+            </div>
+                
+            <div class="form-group">
+                <label>City:</label>
+                <input [(ngModel)]="hotel.city" name="city" class="form-control">
+            </div>
+                
+            <div class="form-group">
+                <label>Stars:</label>
+                <input [(ngModel)]="hotel.stars" name="stars" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <img #img>  
+            </div>
+
+            <div class="form-group">
+
+                <input type="file" #fileInput (change)="upload($event.target.files)">
+                <div [style.width]="percentDone + '%'" style="margin-top:20px; height:10px; background-color: green">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <button
+                (click)="save()"
+                class="btn btn-default">Save</button>
+            </div>
+
+            <div class="form-group" style="margin-top:20px">
+                <a  *ngIf="loggedIn"
+                    [routerLink]="['../../hotel-booking', 'new', {hotelId: hotel.id}]"
+                    class="btn btn-default">Book this hotel</a>
+            
+                <span *ngIf="!loggedIn">
+                    Log in to book this hotel!
+                </span>    
+            </div>
+
+
+        </form>
+    
+    </div>
+</div>
